@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="view_form_file" model="ir.ui.view">
+            <field name="name">file.form</field>
+            <field name="model">file.model</field>
+            <field name="arch" type="xml">
+                <form string="File">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="file"/>
+                            <field name="store_in_db"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_tree_file" model="ir.ui.view">
+            <field name="name">file.tree</field>
+            <field name="model">file.model</field>
+            <field name="arch" type="xml">
+                <tree string="File">
+                    <field name="name"/>
+                    <field name="store_in_db"/>
+                </tree>
+            </field>
+        </record>
+        <record id="action_file_manager" model="ir.actions.act_window">
+            <field name="name">Files</field>
+            <field name="res_model">file.model</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_file_manager" name="File Manager"/>
+        <menuitem id="submenu_file" name="Files" parent="menu_file_manager" action="action_file_manager"/>
+
+
+    </data>
+</odoo>
